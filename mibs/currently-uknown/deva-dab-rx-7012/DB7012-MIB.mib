@@ -235,7 +235,7 @@ DabAvailableServicesTableEntry  ::= SEQUENCE {
   dabAvailableEnsembleId Integer32,
   dabAvailableServiceSid Integer32,
   dabAvailableServiceSubCh Integer32,
-  dabAvailableServiceLabel DisplayString,
+  dabAvailableServiceLabel DisplayString
 }
 
 dabAvailableServiceIndex OBJECT-TYPE
