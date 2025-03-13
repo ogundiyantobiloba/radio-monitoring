@@ -1,17 +1,13 @@
 ---
 http-url: "http://horizon:8980/opennms"
-id: "minion-02"
-location: "ftwidley1"
+broker-url: "failover:tcp://horizon:61616"
+id: "minion-01"
+location: "testradiosite1"
 
 karaf:
   shell:
     ssh:
       host: "0.0.0.0"
-
-ipc:
-  grpc:
-    host: "horizon"
-    port: "8990"
 
 netmgt:
   syslog:

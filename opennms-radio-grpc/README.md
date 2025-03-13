@@ -1,1 +1,0 @@
-# This project contains a docker compose project which uses gRPC to talk to the remote minions
