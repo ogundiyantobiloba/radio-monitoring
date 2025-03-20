@@ -33,7 +33,7 @@
 	alias=%parm[#1]%
 	snmpaid=%parm[#2]%&lt;/p>
 	</logmsg>
-      <severity>Indeterminate</severity>
+      <severity>Normal</severity>
    </event>
    <event>
       <mask>
@@ -237,6 +237,8 @@
                     auto-clean="false"/>
     </event>
 <!--    Sync Recover END for insel2MainAudio-->
+
+    <!--    RAISE ALARM FOR SYNC LOSS  insel2AuxAudio-->
    <event>
       <mask>
          <maskelement>
@@ -249,29 +251,22 @@
          </maskelement>
          <maskelement>
             <mename>specific</mename>
-            <mevalue>3</mevalue>
+            <mevalue>5</mevalue>
          </maskelement>
+          <varbind>
+              <vbnumber>1</vbnumber>
+              <vbvalue>1</vbvalue>
+          </varbind>
       </mask>
-      <uei>uei.opennms.org/traps/DB8008-MIB/notifDigitalSyncLoss</uei>
-      <event-label>DB8008-MIB defined trap event: notifDigitalSyncLoss</event-label>
+      <uei>uei.opennms.org/traps/DB8008-MIB/notifDigitalSyncLoss/insel2AuxAudio</uei>
+      <event-label>DB8008-MIB defined trap event: notifDigitalSyncLoss for insel2AuxAudio</event-label>
       <descr>
 &lt;p>notif Digital Sync Loss&lt;/p>&lt;table>
 	&lt;tr>&lt;td>&lt;b>
 
 	mntrSource&lt;/b>&lt;/td>&lt;td>
 	%parm[#1]%;&lt;/td>&lt;td>&lt;p>
-		insel2MainAudio(1)
 		insel2AUXAudio(2)
-		insel2IPAudioClient1(3)
-		insel2IPAudioClient2(4)
-		insel2IPAudioClient3(5)
-		insel2RTPReceiver(6)
-		insel2MP3Player(7)
-		insel2MainAnalog(13)
-		insel2MainDigital(14)
-		insel2AUXAnalog(15)
-		insel2AUXDigital(16)
-		insel2Auto(128)
 	&lt;/p>&lt;/td>&lt;/tr>
 	&lt;tr>&lt;td>&lt;b>
 
@@ -283,32 +278,22 @@
 	%parm[#3]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
       <logmsg dest="logndisplay">&lt;p>
-	notifDigitalSyncLoss trap received
+	notifDigitalSyncLoss trap received for inselAuxAudio
 	mntrSource=%parm[#1]%
 	alias=%parm[#2]%
 	snmpaid=%parm[#3]%&lt;/p>
 	</logmsg>
-      <severity>Indeterminate</severity>
+      <severity>Major</severity>
       <varbindsdecode>
          <parmid>parm[#1]</parmid>
-         <decode varbindvalue="1" varbinddecodedstring="insel2MainAudio"/>
          <decode varbindvalue="2" varbinddecodedstring="insel2AUXAudio"/>
-         <decode varbindvalue="3" varbinddecodedstring="insel2IPAudioClient1"/>
-         <decode varbindvalue="4" varbinddecodedstring="insel2IPAudioClient2"/>
-         <decode varbindvalue="5" varbinddecodedstring="insel2IPAudioClient3"/>
-         <decode varbindvalue="6" varbinddecodedstring="insel2RTPReceiver"/>
-         <decode varbindvalue="7" varbinddecodedstring="insel2MP3Player"/>
-         <decode varbindvalue="13" varbinddecodedstring="insel2MainAnalog"/>
-         <decode varbindvalue="14" varbinddecodedstring="insel2MainDigital"/>
-         <decode varbindvalue="15" varbinddecodedstring="insel2AUXAnalog"/>
-         <decode varbindvalue="16" varbinddecodedstring="insel2AUXDigital"/>
-         <decode varbindvalue="128" varbinddecodedstring="insel2Auto"/>
       </varbindsdecode>
+       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" alarm-type="1" auto-clean="false"/>
    </event>
-<!--    -->
+<!--  END FOR RAISE ALARM INSEL2AuxAudio -->
 
 
-<!--    -->
+<!--CLEAR ALARM FOR INSEL2AUX AUDIO    -->
    <event>
       <mask>
          <maskelement>
@@ -321,29 +306,22 @@
          </maskelement>
          <maskelement>
             <mename>specific</mename>
-            <mevalue>4</mevalue>
+            <mevalue>6</mevalue>
          </maskelement>
+          <varbind>
+              <vbnumber>1</vbnumber>
+              <vbvalue>1</vbvalue>
+          </varbind>
       </mask>
-      <uei>uei.opennms.org/traps/DB8008-MIB/notifDigitalSyncRecover</uei>
-      <event-label>DB8008-MIB defined trap event: notifDigitalSyncRecover</event-label>
+      <uei>uei.opennms.org/traps/DB8008-MIB/notifDigitalSyncRecover/insel2AUXAudio</uei>
+      <event-label>DB8008-MIB defined trap event: notifDigitalSyncRecover/Insel2AuxAudio</event-label>
       <descr>
 &lt;p>notif Digital Sync Recover&lt;/p>&lt;table>
 	&lt;tr>&lt;td>&lt;b>
 
 	mntrSource&lt;/b>&lt;/td>&lt;td>
 	%parm[#1]%;&lt;/td>&lt;td>&lt;p>
-		insel2MainAudio(1)
 		insel2AUXAudio(2)
-		insel2IPAudioClient1(3)
-		insel2IPAudioClient2(4)
-		insel2IPAudioClient3(5)
-		insel2RTPReceiver(6)
-		insel2MP3Player(7)
-		insel2MainAnalog(13)
-		insel2MainDigital(14)
-		insel2AUXAnalog(15)
-		insel2AUXDigital(16)
-		insel2Auto(128)
 	&lt;/p>&lt;/td>&lt;/tr>
 	&lt;tr>&lt;td>&lt;b>
 
@@ -355,12 +333,12 @@
 	%parm[#3]%;&lt;/td>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table>
 	</descr>
       <logmsg dest="logndisplay">&lt;p>
-	notifDigitalSyncRecover trap received
+	notifDigitalSyncRecover trap received for Insel2AuxAudio
 	mntrSource=%parm[#1]%
 	alias=%parm[#2]%
 	snmpaid=%parm[#3]%&lt;/p>
 	</logmsg>
-      <severity>Indeterminate</severity>
+      <severity>Cleared</severity>
       <varbindsdecode>
          <parmid>parm[#1]</parmid>
          <decode varbindvalue="1" varbinddecodedstring="insel2MainAudio"/>
@@ -376,6 +354,10 @@
          <decode varbindvalue="16" varbinddecodedstring="insel2AUXDigital"/>
          <decode varbindvalue="128" varbinddecodedstring="insel2Auto"/>
       </varbindsdecode>
+       <alarm-data reduction-key="%uei%:%dpname%:%nodeid%"
+                   alarm-type="2"
+                   clear-key="uei.opennms.org/traps/DB8008-MIB/notifDigitalSyncLoss/insel2AuxAudio:%dpname%:%nodeid%"
+                   auto-clean="false"/>
    </event>
    <event>
       <mask>
